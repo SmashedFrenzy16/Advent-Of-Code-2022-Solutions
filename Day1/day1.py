@@ -1,32 +1,28 @@
+with open("cal_data.txt") as cal:
 
-cal_list = []
 
-elf_sum = 0
+    cal_list = []
 
-def elf_sort(cal_file: str) -> list:
+    elf_sum = 0
 
-    global elf_sum
+    for l in cal:
 
-    with open(cal_file) as c:
+        l.strip()
 
-        for i in c:
+        if l is not "\n":
 
-            if i != "\n":
+            elf_sum += int(l)
 
-                elf_sum += int(i)
+        else:
 
-            else:
+            cal_list.append(elf_sum)
 
-                cal_list.append(elf_sum)
+            elf_sum = 0
 
-                elf_sum = 0
+    cal_list.sort(reverse=True)
 
-max_elf = elf_sort("cal_data.txt")
+    cal_list_3_sum = cal_list[0] + cal_list[1] + cal_list[2]
 
-cal_list.sort(reverse=True)
+    print(f"Part 1 Solution: {max(cal_list)}")
 
-print("Most calories elf: ", max(cal_list))
-
-cal_list_3_sum = cal_list[0] + cal_list[1] + cal_list[2]
-
-print("Combined calories of top 3 elves: ", cal_list_3_sum)
+    print(f"Part 2: {cal_list_3_sum}")
