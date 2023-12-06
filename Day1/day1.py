@@ -19,10 +19,8 @@ with open("cal_data.txt") as cal:
 
             elf_sum = 0
 
-    cal_list.sort(reverse=True)
+    sorted_list = cal_list.sort(reverse=True)
 
-    cal_list_3_sum = cal_list[0] + cal_list[1] + cal_list[2]
+    print(f"Part 1 Solution: {max(sorted_list)}")
 
-    print(f"Part 1 Solution: {max(cal_list)}")
-
-    print(f"Part 2: {cal_list_3_sum}")
+    print(f"Part 2 Solution: {sorted_list[0] + sorted_list[1] + sorted_list[2]}")
