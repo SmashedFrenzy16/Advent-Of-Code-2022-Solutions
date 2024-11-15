@@ -1,45 +1,49 @@
-data = open("input.txt").read()
+points = 0
 
-score = 0
+with open("input.txt") as f:
 
-for i in data.split("\n"):
 
-    c, h = i.split()
+    l = f.read().split("\n")
 
-    if h == "X":
+    for i in l:
 
-        if c == "A":
+        temp_arr = [_ for _ in i.split(" ")]
 
-            score += 3
 
-        if c == "C":
+        if temp_arr[1] == "X":
 
-            score += 6
+            points += 1
 
-        score += 1
+            if temp_arr[0] == "A":
 
-    if h == "Y":
+                points += 3
 
-        if c == "A":
+            if temp_arr[0] == "C":
 
-            score += 6
+                points += 6
 
-        if c == "B":
+        if temp_arr[1] == "Y":
 
-            score += 3
+            points += 2
 
-        score += 2
+            if temp_arr[0] == "A":
 
-    if h == "Z":
+                points += 6
 
-        if c == "B":
+            if temp_arr[0] == "B":
 
-            score += 6
+                points += 3
+        
+        if temp_arr[1] == "Z":
 
-        if c == "C":
+            points += 3
 
-            score += 3
+            if temp_arr[0] == "B":
 
-        score += 3
+                points += 6
 
-print("Maximum score with strategy:", score)
+            if temp_arr[0] == "C":
+
+                points += 3
+
+print(points)
