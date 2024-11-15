@@ -19,7 +19,25 @@ with open("cal_data.txt") as cal:
 
             elf_sum = 0
 
-    cal_list.sort(reverse=True)
+    has_swapped = True
+
+    while has_swapped == True:
+
+        for i in range(len(cal_list) - 1):
+
+            if (cal_list[i] > cal_list[i + 1]):
+
+                has_swapped = True
+
+                og = cal_list[i]
+                new = cal_list[i + 1]
+
+                cal_list[i] = new
+                cal_list[i + 1] = og
+            
+            else:
+
+                has_swapped = False
 
     print(f"Part 1 Solution: {max(cal_list)}")
 
