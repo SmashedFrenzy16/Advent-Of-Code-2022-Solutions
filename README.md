@@ -3,4 +3,4 @@ This is a repository with the solutions to Advent Of Code 2022! Merry Christmas 
 
 ## Disclaimer
 
-Thank you to some tutorials for helping me make this code possible!
+Thank you to some websites for helping me make this code possible!
